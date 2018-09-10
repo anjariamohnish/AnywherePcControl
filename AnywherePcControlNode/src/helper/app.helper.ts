@@ -1,3 +1,6 @@
+import { Log } from "../models";
+import firebase from "firebase";
+
 export function getCurrentDateTime(date: boolean = true, time: boolean = true) {
     const currentDateTime = new Date();
 
@@ -16,4 +19,14 @@ export function getCurrentDateTime(date: boolean = true, time: boolean = true) {
     } else if (!date && time) {
         return currentTime;
     }
+}
+
+
+export function logEvent(title: string, details: string): void {
+    const log = new Log();
+    log.title = title;
+    log.details = details;
+    log.time = getCurrentDateTime();
+    log.deviceId = 'devb';
+    firebase.database().ref('Logs').push(log);
 }

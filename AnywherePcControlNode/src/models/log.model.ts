@@ -1,6 +1,6 @@
 export class Log {
-    title: string | undefined;
-    details: string | undefined;
+    title!: string;
+    details!: string;
     time: string | undefined;
-    deviceId: string | undefined;
+    deviceId!: string;
 }

@@ -1,11 +1,13 @@
 import { DeviceStatus } from "../enums/devicestatus.enum";
 import { DeviceInfo } from "./deviceInfo.model";
+import { ControlDevice } from "./controldevice.model";
 
 export class Device {
-    DeviceInfo: DeviceInfo | undefined;
-    DeviceName: string | undefined;
-    DeviceStatus: DeviceStatus | undefined;
-    LastOnline: string | undefined;
-    QrCode: string | undefined;
-    SecurityPin: string | undefined;
+    ControlDevice!: ControlDevice;
+    DeviceInfo!: DeviceInfo;
+    DeviceName!: string;
+    DeviceStatus!: DeviceStatus;
+    LastOnline!: string;
+    QrCode!: string;
+    SecurityPin!: string;
 }

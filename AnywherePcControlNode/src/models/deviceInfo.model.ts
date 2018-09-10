@@ -1,17 +1,11 @@
-import { Ethernet } from "./ethernet.model";
-import { Battery } from "./battery.model";
-import { SystemInfo } from "./systeminfo.model";
-import { UserInfo } from "firebase";
-import { OsInfo } from "./osinfo.model";
-import { CPU } from "./cpu.model";
-import { GraphicsInfo } from "./graphicsinfo.model";
+import { Systeminformation } from 'systeminformation';
 
 export class DeviceInfo {
-    SystemInfo: SystemInfo | undefined;
-    EthernetInfo: Array<Ethernet> | undefined;
-    BatteryInfo: Battery | undefined;
-    UserInfo: Array<UserInfo> | undefined;
-    OsInfo: OsInfo | undefined;
-    CpuInfo: CPU | undefined;
-    GraphicsInfo: GraphicsInfo | undefined;
+    SystemInfo!: Systeminformation.SystemData;
+    EthernetInfo!: Systeminformation.NetInterfacesData[];
+    BatteryInfo!: Systeminformation.BatteryData;
+    UserInfo!: Systeminformation.UserData[];
+    OsInfo!: Systeminformation.OsData;
+    CpuInfo!: Systeminformation.CpuData;
+    GraphicsInfo!: Systeminformation.GraphicsData;
 }

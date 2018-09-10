@@ -1,7 +1,6 @@
 import firebase from 'firebase';
 import { firebaseConfig } from '../firebase-config';
-import { Log } from '../models/log.model';
-import { getCurrentDateTime } from './app.helper';
+import { logEvent } from './app.helper';
 
 
 export function initializeFirebase(): void {
@@ -19,13 +18,4 @@ export function checkIfExist(dbReference: string): Promise<boolean> {
             logEvent('Promise Error', err);
             return false;
         });
-}
-
-export function logEvent(title: string, details: string): void {
-    const log = new Log();
-    log.title = title;
-    log.details = details;
-    log.time = getCurrentDateTime();
-    log.deviceId = 'devb';
-    firebase.database().ref('Logs').push(log);
 }
